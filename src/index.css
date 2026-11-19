@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;500;600&family=Funnel+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-paper font-sans text-navy-900 antialiased;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+  h1 {
+    letter-spacing: -0.035em;
+  }
+  ::selection {
+    @apply bg-electric-200 text-navy-950;
+  }
+}
+
+@layer components {
+  .container-app {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-electric-700 px-5 py-2.5 text-sm font-medium text-white transition duration-150 hover:bg-electric-800 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-60;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-navy-200 bg-white px-5 py-2.5 text-sm font-medium text-navy-800 transition duration-150 hover:border-navy-300 hover:bg-navy-50 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-electric-500 disabled:pointer-events-none disabled:opacity-60;
+  }
+  .card {
+    @apply rounded-2xl border border-navy-100 bg-white shadow-soft;
+  }
+  .input {
+    @apply w-full rounded-lg border border-navy-200 bg-white px-4 py-2.5 text-sm text-navy-900 transition placeholder:text-navy-300 focus:border-electric-600 focus:outline-none focus:ring-2 focus:ring-electric-600/15;
+  }
+  .label {
+    @apply mb-1.5 block text-sm font-medium text-navy-800;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.12em] text-electric-700;
+  }
+}
+
+/* Thin, quiet scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cdd7d4;
+  border-radius: 8px;
+  border: 2px solid #f7f9f8;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a6b5b1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  .print-area,
+  .print-area * {
+    visibility: visible;
+  }
+  .print-area {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
